@@ -1,0 +1,6 @@
+eureka:
+  client:
+    enabled: false
+stubrunner:
+  idsToServiceIds:
+    spring-cloud-service: Service-Hello
