@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 /**
  * @author fangang
  */
@@ -22,5 +24,6 @@ public interface HelloService {
 	@GetMapping("showMe")
 	public Person showMe();
 	@PostMapping("findPerson")
+	@HystrixCommand(ignoreExceptions = {RuntimeException.class}) 
 	public Person findPerson(Map<String, String> param);
 }
